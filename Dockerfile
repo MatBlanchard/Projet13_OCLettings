@@ -1,8 +1,7 @@
-FROM python:3.11.1
+FROM python:3.11
 ENV PYTHONUNBUFFERED 1
-RUN mkdir /Projet13_OCLettings
-WORKDIR /Projet13_OCLettings
-COPY requirements.txt /Projet13_OCLettings/
+RUN mkdir /code
+WORKDIR /code
+COPY requirements.txt /code/
 RUN pip install -r requirements.txt
-COPY . /Projet13_OCLettings/
-CMD py manage.py runserver
+COPY . /code/
