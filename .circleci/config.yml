@@ -2,7 +2,7 @@ version: 3.4.8
 jobs:
   build:
     docker:
-      - image: alpine:3.15
+      - image: matblanchard/oc_lettings:latest
         auth:
           username: matblanchard
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
