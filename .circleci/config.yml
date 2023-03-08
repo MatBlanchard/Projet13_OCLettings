@@ -7,9 +7,12 @@ jobs:
     steps:
       - checkout
       - run: python3 -m venv env
-      - run: source env/bin/activate && pip install -r requirements.txt
-      - run: source env/bin/activate && flake8
-      - run: source env/bin/activate && pytest
+      - run: source env/bin/activate
+      - run: source pip install -r requirements.txt
+      - run: source python3 manage.py makemigrations
+      - run: source python3 manage.py migrate
+      - run: source flake8
+      - run: source pytest
   push-on-dockerhub:
     machine: true
     steps:
