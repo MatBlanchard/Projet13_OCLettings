@@ -6,10 +6,10 @@ jobs:
       - image: matblanchard/oc_lettings
     steps:
       - checkout
-      - run: python3 -m venv venv
-      - run: source venv/bin/activate && pip install -r requirements.txt
-      - run: source venv/bin/activate && flake8
-      - run: source venv/bin/activate && pytest
+      - run: python3 -m venv env
+      - run: source env/bin/activate && pip install -r requirements.txt
+      - run: source env/bin/activate && flake8
+      - run: source env/bin/activate && pytest
   push-on-dockerhub:
     machine: true
     steps:
