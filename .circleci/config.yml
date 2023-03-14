@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  heroku: circleci/heroku@2.0.0
+  heroku: circleci/heroku@2.0
 
 jobs:
   build-and-test:
@@ -26,6 +26,7 @@ jobs:
     executor: heroku/default
     steps:
       - checkout
+      - run: git push heroku main
       - heroku/deploy-via-git
 
 workflows:
