@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  heroku: circleci/heroku@1.2.6
+  heroku: circleci/heroku@2.0.0
 
 jobs:
   build-and-test:
@@ -22,8 +22,7 @@ jobs:
       - run: echo "$DOCKER_PASSWORD" | docker login --username matblanchard --password-stdin
       - run: docker build --tag matblanchard/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_SHA1} .
       - run: docker push matblanchard/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_SHA1}
-  deploy-on-heroku:
-    executor: heroku/default
+  heroku_deploy:
     steps:
       - checkout
       - heroku/deploy-via-git
@@ -39,7 +38,7 @@ workflows:
             branches:
               only:
                 - master
-      - deploy-on-heroku:
+      - heroku_deploy:
           requires:
             - push-on-dockerhub
           filters:
