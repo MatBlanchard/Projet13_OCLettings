@@ -34,8 +34,6 @@ workflows:
     jobs:
       - build-and-test
       - push-on-dockerhub:
-          requires:
-            - build-and-test
           filters:
             branches:
               only:
