@@ -22,7 +22,8 @@ jobs:
       - run: echo "$DOCKER_PASSWORD" | docker login --username matblanchard --password-stdin
       - run: docker build --tag matblanchard/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_SHA1} .
       - run: docker push matblanchard/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_SHA1}
-  deploy-on-heroku:
+  heroku-deploy:
+    executor: heroku/default
     steps:
       - checkout
       - heroku/deploy-via-git
@@ -38,7 +39,7 @@ workflows:
             branches:
               only:
                 - master
-      - deploy-on-heroku:
+      - heroku-deploy:
           requires:
             - push-on-dockerhub
           filters:
