@@ -12,4 +12,4 @@ def index(request):
 
 
 def sentry_test(request):
-    test = 1/0
+    return 1/0
