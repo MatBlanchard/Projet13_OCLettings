@@ -17,7 +17,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['oclettings-site.herokuapp.com', 'localhost:8000']
+ALLOWED_HOSTS = ['oclettings-site.herokuapp.com', 'localhost']
 
 # Application definition
 
