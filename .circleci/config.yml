@@ -39,11 +39,11 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
       - heroku-deploy:
           requires:
             - push-on-dockerhub
           filters:
             branches:
               only:
-                - master
+                - main
