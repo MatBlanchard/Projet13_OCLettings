@@ -9,3 +9,7 @@ from django.shortcuts import render
 # cursus in. Praesent volutpat porttitor magna, non finibus neque cursus id.
 def index(request):
     return render(request, 'index.html')
+
+
+def sentry_test(request):
+    test = 1/0
