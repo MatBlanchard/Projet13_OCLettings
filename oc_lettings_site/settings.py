@@ -117,7 +117,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 sentry_sdk.init(
-    dsn=str(os.getenv('SENTRY_DSN')),
+    dsn=os.getenv('SENTRY_DSN'),
     integrations=[DjangoIntegration()],
 
     # Set traces_sample_rate to 1.0 to capture 100%
